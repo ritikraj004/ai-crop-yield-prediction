@@ -3,6 +3,13 @@ import pickle
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
+
+# If model doesn't exist, train it
+if not os.path.exists("model.pkl"):
+    import train_model  # this will generate model.pkl
+
+model = pickle.load(open("model.pkl", "rb"))
 
 # -----------------------------
 # Title and Description
@@ -155,4 +162,5 @@ st.pyplot(fig3)
 # -----------------------------
 
 st.markdown("---")
+
 st.write("Developed by Ritik Raj | B.Sc. Agriculture | AgriTech Machine Learning Project")
